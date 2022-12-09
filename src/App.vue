@@ -11,8 +11,6 @@
           :key="link"
           text
           color="white"
-          link
-          to="/"
         >
           {{ link }}
         </v-btn>
@@ -38,9 +36,7 @@
     data: () => ({
       links: [
         'JSON File',
-        'Messages',
-        'Profile',
-        'Updates',
+        'Modules',
       ],
     }),
   
