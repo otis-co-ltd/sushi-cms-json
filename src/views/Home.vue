@@ -57,6 +57,13 @@
         </v-col>
         <!-- <input :v-model="value" type="text" :value="value"/> -->
     </v-row>
+    <v-btn
+      @click="testGet"
+      :key="uploadFile"
+    >
+      Submit
+    </v-btn>
+    {{users}}
   </v-container>
 </template>
 
@@ -81,8 +88,12 @@ export default {
         this.users = JSON.parse(e.target.result);
 
       }
-      reader.readAsText(file);
 
+      reader.readAsText(file);
+    },
+    testGet() {
+      this.users.uploadFile = 'new value';
+      // export
     },
   }
 };
