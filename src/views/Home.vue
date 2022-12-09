@@ -42,16 +42,16 @@
           <v-divider></v-divider>
       </v-col>
     </v-row>
-    <v-row v-for="(value, key, index) in users" v-bind:key="index">
+    <v-row v-for="(value, key) in users" v-bind:key="key">
         <v-col cols="4">
-          <v-subheader>{{key}}</v-subheader>
+          <v-subheader>{{value.key}}</v-subheader>
         </v-col>
         <v-col cols="8">
           <!-- <input :type="text" :name="key" :v-model="test" :value="value" /> -->
           <v-text-field
-            :v-model="uploadFile"
-            :value="value"
-            :name="key"
+            v-model="users[key].value"
+            :value="value.value"
+            :name="value.key"
             outlined
           ></v-text-field>
         </v-col>
@@ -85,14 +85,19 @@ export default {
       const reader = new FileReader();
 
       reader.onload = e => {
-        this.users = JSON.parse(e.target.result);
+        Object.keys(JSON.parse(e.target.result)).forEach(key => {
+          this.users.push({
+            key: key,
+            value: JSON.parse(e.target.result)[key],
+          });
+        });
 
       }
 
       reader.readAsText(file);
     },
     testGet() {
-      this.users.uploadFile = 'new value';
+      console.log(this.users);
       // export
     },
   }
