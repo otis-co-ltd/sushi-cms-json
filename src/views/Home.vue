@@ -18,6 +18,7 @@
           prepend-icon="mdi-paperclip"
           @change="loadTextFromFile"
         ></v-file-input>
+        <p class="red--text ml-6 pa-2"> {{errorMessage}} </p>
       </v-col>
     </v-row>
     <v-row>
@@ -37,7 +38,7 @@
           color="black"
           rounded
         >
-          Export
+          JSONの書き出し
         </v-btn>
       </v-col>
     </v-row>
@@ -67,23 +68,39 @@ export default {
       data: [],
       result: null,
       selectFiles: null,
-      value: null
+      value: null,
+      keyJson: [],
+      dataHandler: null,
+      errorHandler: null,
+      errorMessage: ''
     };
   },
   methods:{
     loadTextFromFile() {
       
+      this.errorMessage = '';
       this.data = [];
+      this.errorHandler = false;
+      this.dataHandler = null;
       const file = document.getElementById('selectFiles').files[0];
       const reader = new FileReader();
 
       reader.onload = e => {
+        try {
+          this.dataHandler = JSON.parse(e.target.result);
+        } catch (error) {
+          this.errorHandler = true;
+          this.errorMessage = 'JSONファイルをアップロードしてください。'
+        }
+
+        if (!this.errorHandler) {
           Object.keys(JSON.parse(e.target.result)).forEach(key => {
             this.data.push({
               key: key,
               value: JSON.parse(e.target.result)[key],
             });
           });
+        }
       }
 
       reader.readAsText(file);
