@@ -9,23 +9,20 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="6">
+      <v-col cols="12">
         <v-file-input
           id="selectFiles"
-          label="File input"
+          label="JSONファイルをアップロードする"
           outlined
           dense
           prepend-icon="mdi-paperclip"
           @change="loadTextFromFile"
         ></v-file-input>
       </v-col>
-      <v-col cols="6">
-        <pre id="result"></pre>
-      </v-col>
     </v-row>
     <v-row>
       <v-col cols="12">
-        <h2>Update JSON File</h2>
+        <h2>JSONファイルの更新と書き出し</h2>
       </v-col>
       <v-col cols="12">
           <v-divider></v-divider>
@@ -42,25 +39,21 @@
         >
           Export
         </v-btn>
-        <!-- {{data}} -->
       </v-col>
     </v-row>
-    <!-- <div id="element">
-      <div v-if="!data.length">Invalid</div> -->
-      <v-row v-for="(value, key) in data" v-bind:key="key">
-          <v-col cols="4">
-            <v-subheader>{{value.key}}</v-subheader>
-          </v-col>
-          <v-col cols="8">
-            <v-text-field
-              v-model="data[key].value"
-              :value="value.value"
-              :name="value.key"
-              outlined
-            ></v-text-field>
-          </v-col>
-      </v-row>
-    <!-- </div> -->
+    <v-row v-for="(value, key) in data" v-bind:key="key">
+      <v-col cols="4">
+        <v-subheader>{{value.key}}</v-subheader>
+      </v-col>
+      <v-col cols="8">
+        <v-text-field
+          v-model="data[key].value"
+          :value="value.value"
+          :name="value.key"
+          outlined
+        ></v-text-field>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -80,7 +73,6 @@ export default {
   methods:{
     loadTextFromFile() {
       
-      this.errorMessage = '';
       this.data = [];
       const file = document.getElementById('selectFiles').files[0];
       const reader = new FileReader();
@@ -112,7 +104,7 @@ export default {
 
       jsonStr += '}';
 
-      downloadjs(jsonStr, "apidata.json", "text/plain");
+      downloadjs(jsonStr, "sushi-json.json", "text/plain");
     }
   }
 };
