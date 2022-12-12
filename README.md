@@ -44,4 +44,4 @@ npm run build
     - For testing
     
 ## Organization
-`OTis Co. Ltd. <https://github.com/otis-co-ltd>`_
+`OTis Co. Ltd. <https://github.com/otis-co-ltd>`
