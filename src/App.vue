@@ -2,7 +2,7 @@
   <v-app id="inspire">
     <v-app-bar
       app
-      color="white"
+      color="black"
       flat
     >
       <v-container class="py-0 fill-height">
@@ -10,13 +10,14 @@
           v-for="link in links"
           :key="link"
           text
+          color="white"
         >
           {{ link }}
         </v-btn>
       </v-container>
     </v-app-bar>
 
-    <v-main class="grey lighten-3">
+    <v-main>
       <v-container>
 
             <v-sheet
@@ -34,10 +35,8 @@
   export default {
     data: () => ({
       links: [
-        'Dashboard',
-        'Messages',
-        'Profile',
-        'Updates',
+        'JSON File',
+        'Modules',
       ],
     }),
   
