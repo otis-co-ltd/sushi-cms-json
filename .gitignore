@@ -15,7 +15,7 @@ dist-ssr
 
 /cypress/videos/
 /cypress/screenshots/
-
+src/assets/modules/
 # Editor directories and files
 .vscode
 !.vscode/extensions.json
