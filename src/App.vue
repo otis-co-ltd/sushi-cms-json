@@ -7,11 +7,12 @@
     >
       <v-container class="py-0 fill-height">
         <v-btn
-          v-for="link in links"
-          :key="link"
+          v-for="link, index in links"
+          :key="index"
           text
+          :to="link.link"
         >
-          {{ link }}
+          {{link.navName }}
         </v-btn>
       </v-container>
     </v-app-bar>
@@ -34,10 +35,12 @@
   export default {
     data: () => ({
       links: [
-        'Dashboard',
-        'Messages',
-        'Profile',
-        'Updates',
+        {
+          navName: 'JSON file', link: '/',
+        },
+        {
+          navName: 'Modules', link: '/modules'
+        }
       ],
     }),
   
