@@ -2,7 +2,7 @@
   <v-app id="inspire">
     <v-app-bar
       app
-      color="white"
+      color="black"
       flat
     >
       <v-container class="py-0 fill-height">
@@ -11,13 +11,14 @@
           :key="index"
           text
           :to="link.link"
+          color="white"
         >
           {{link.navName }}
         </v-btn>
       </v-container>
     </v-app-bar>
 
-    <v-main class="grey lighten-3">
+    <v-main>
       <v-container>
 
             <v-sheet

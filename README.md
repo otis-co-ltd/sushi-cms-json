@@ -1,17 +1,22 @@
-# sushi-cms-json
+# Sushi Translation CMS
 
-This template should help get you started developing with Vue 3 in Vite.
+## Requirements
 
-## Recommended IDE Setup
+## Installation
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+1. Go to directory
 
-## Customize configuration
+	- git init
+	- git remote add origin https://github.com/otis-co-ltd/sushi-cms-json.git
+	- git pull origin development
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+2. Run the following
 
-## Project Setup
+	- npm install
+	- npm install downloadjs
+    - npm install @mdi/font -D
 
+### Project Setup
 ```sh
 npm install
 ```
@@ -27,3 +32,16 @@ npm run dev
 ```sh
 npm run build
 ```
+
+## Dependecies
+
+- vuetify
+- downloadjs
+
+## Branch
+
+- development
+    - For testing
+    
+## Organization
+`OTis Co. Ltd. <https://github.com/otis-co-ltd>`
